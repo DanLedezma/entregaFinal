@@ -1,0 +1,298 @@
+@use '../utilidades/variables' as *;
+@use '../utilidades/mixins' as *;
+
+@media (max-width: $resolucionCelular){
+    .grid-Container{
+        grid-template-areas: 'logo       logo'      /*10*/
+                             'nav        nav'       /*5*/
+                             'carrusel   carrusel'  /*45*/
+                             'somos      somos'     /*auto 1*/
+                             'unete      unete'     /*auto 3*/
+                             'crece      crece'     /*auto 4*/
+                             'aliados    aliados'   /*auto 2*/
+                             'noticias   noticias'  /*auto 5*/
+                             'contacta   contacta'  /*auto 6*/
+                             'visitanos  visitanos' /*visitanos 7*/                             
+                             'legal      direccion' /*auto 8*/ 
+                             'redes      redes'     /*auto 9*/
+                             'derechos   derechos'; /*auto 10*/
+        grid-template-rows: 10% 7% 45% auto auto auto 15% auto auto auto auto auto auto ;
+    }
+    
+    .header{
+        &__logo--img{
+            width: 100%; 
+            height: 100%; 
+            max-height: auto; 
+        }
+        &__nav {
+            ul{
+                li{
+                    margin-right: 30px; 
+                    a{
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    
+    .body{
+        &__visitanos{
+            .separador{
+                width: 100%;
+            }
+            .separador__titulo{
+                font-size: 26px;
+                width: auto;
+            }
+            iframe{
+                font-size: 26px;
+                width: 80%
+            }
+        }
+        &__aliadosContainer {
+            height: 100px;
+            padding: 0px 0;
+            &--marcas {
+                animation: aliadosCarrusel 12s linear infinite;
+                img {
+                    flex: 0 0 calc(100% /4);
+                    max-width: calc(100% / 4);
+                }
+            }
+        }
+    }
+
+    .separador{
+        &__linea{
+            width: 20%;
+        }
+        &__titulo{
+            font-size: 20px;
+            width: auto;
+        }
+    }
+    .footer{
+        &direcciones {
+            padding: 10px; 
+            h4 {
+                padding-left: 0; 
+                font-size: 18px; 
+                text-align: center; 
+            }
+            &--contenedorSucursales {
+                width: 100%; 
+                margin-left: 0;
+            }
+        }
+        &__redes li {
+            flex: 2 2 25%;
+            display: flex;
+            justify-content: center;
+            margin: 4px 0; 
+        }
+    }
+}
+/*?  ------------------------------------------------------------------------------------------------ */
+/*  ?media queries para tablet y telefonos grandes*/
+/*?  ------------------------------------------------------------------------------------------------ */
+@media (min-width: $resolucionTabletMin) and  (max-width: $resolucionTabletMax){
+    
+    .grid-Container{
+        grid-template-areas:'logo      nav'
+                            'carrusel  carrusel'
+                            'somos     somos'
+                            'unete     unete'
+                            'crece     crece'
+                            'aliados   aliados'
+                            'contacta  contacta'
+                            'visitanos visitanos' 
+                            'legal     direccion'
+                            'redes     redes'
+                            'derechos  derechos';
+    grid-template-rows: 15% 45% auto auto auto auto auto auto auto auto auto;
+    }
+    .header{
+        &__logo{
+            --img{   
+                width: 100%; 
+                max-height: 100%; 
+            }
+            &__nav{
+                ul{
+                    li{
+                        margin-right: 10px; 
+                        a{
+                            font-size: 20px;
+                        }
+                        img {
+                            width: 40px;
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
+
+    .body{
+        &__visitanos{
+            .separador{
+                width: 100%;
+                &__titulo{
+                    font-size: 26px;
+                    width: auto;
+                }
+            }
+        }
+        &__aliadosContainer {
+            height: 110px;
+            padding: 0px 0;
+            &--marcas {
+                animation: aliadosCarrusel 14s linear infinite;
+                img {
+                    flex: 0 0 calc(100% /5);
+                    max-width: calc(100% / 5);
+                }
+            }
+        }
+        &__visitanos{
+            .separador{
+                width: 100%;
+                &__titulo{
+                    font-size: 26px;
+                    width: auto;
+                }
+            }
+        }
+    }
+    .footer{
+        &__direcciones{
+            h4{
+                padding-left: 0;
+                font-size: 20px;
+                text-align: center;
+            }
+            &--contenedorSucursales {
+                width: 90%;
+                margin-left: 0;
+            }
+        }
+        &__redes li {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: center;
+            margin: 0 3px; 
+        }
+    }
+    .separador{
+        &__linea{
+            width: 20%;
+        }
+        &__titulo{
+            font-size: 20px;
+            width: auto;
+        }
+    }
+}
+/*  ?media queries para Computadora*/
+@media (min-width: $resolucionComputadoraMin) and  (max-width: $resolucionComputadoraMax){
+    .grid-Container{
+        grid-template-areas: 'logo       nav'
+                             'carrusel   carrusel'
+                             'somos      somos'
+                             'unete      crece'
+                             'aliados    aliados'
+                             'contacta   visitanos'
+                             'legal      direccion  '
+                             'redes      redes'
+                             'derechos   derechos';
+        grid-template-rows: 10% 50% auto auto auto auto auto auto auto;
+    }
+
+    .footer{
+        &__direcciones{
+            h4{
+                font-size: 22px;
+                padding-left: 0;
+                text-align: center;
+            }
+            &--contenedorSucursales {
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        &__redes{
+            li {
+                flex: 1 1 auto;
+                display: flex;
+                justify-content: center;
+                margin: 0 5px; 
+            }
+            &--iconoNav {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+    .body{
+        &__aliadosContainer {
+            height: 120px;
+            padding: 0px 0;
+            &--marcas {
+                animation: aliadosCarrusel 18s linear infinite;
+                img {
+                    flex: 0 0 calc(100% /6);
+                    max-width: calc(100% / 6);
+                }
+            }
+        }
+        &__contacto{
+            .separador{
+                background-color: aquamarine;
+                &__linea{ 
+                    width: 30%;
+                }
+                &__titulo{
+                    font-size: 20px;
+                    width: auto;
+                    background-color: #131314;
+                }
+            }
+        }
+        &__unete{
+            .separador { 
+                width: 100%;
+                &__titulo{
+                    font-size: 26px;
+                    width: 120px;
+                } 
+                &__linea{ 
+                    width: 30%;
+                }
+            }
+        }
+        &__noticias{
+            .separador { 
+                width: 100%;
+            }
+            __titulo{
+                font-size: 26px;
+                width: 120px;
+            }
+        }
+    }
+    .separador{
+        &__linea{
+            display: inline-block;  
+            width: 30%;
+            height: 4px;
+            background-color: #3182ce;
+            vertical-align: middle; 
+            margin: 0px 0px;   
+        }
+    }
+}

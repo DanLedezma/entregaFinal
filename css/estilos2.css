@@ -1,0 +1,771 @@
+/* !Resetear estilos*/
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;;
+} 
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+html {
+    scroll-behavior: smooth;
+}
+/*Sistema de grillas*/
+.grid-Container{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+
+    display: grid;
+    grid-template-areas: 'logo      nav        nav         nav'
+                         'carrusel  carrusel   carrusel    carrusel'
+                         'somos     somos      somos       somos'
+                         'aliados   aliados    aliados     aliados'
+                         'unete     unete      crece       crece'
+                         'noticias  noticias   noticias    noticias'
+                         'contacta  contacta   visitanos   visitanos'
+                         'legal     direccion  direccion   redes'
+                         'derechos  derechos   derechos    derechos';
+    grid-template-rows: 10% 80% auto auto auto auto auto auto auto;
+}
+
+/* *Logo*/
+.header__logo {
+    grid-area: logo;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    width: 100%; 
+    height: 100%;
+    overflow: hidden; 
+}
+.header__logo--img {
+    max-width: 100%; 
+    max-height: auto;
+    object-fit: contain;
+    height: 100%; 
+    width: auto; 
+}
+/* *header*/
+.header__nav{
+    grid-area: nav;
+}
+.header__nav {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+}
+.header__nav--iconoNav {
+    margin-right: 10px; 
+    width: 20px;
+    height: 20px;
+    vertical-align: middle; 
+}
+.header__nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.header__nav ul li {
+    list-style: none;
+    margin-right: 20px; 
+}
+.header__nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(75, 75, 75);
+    font-size: 25px;
+    font-family: "cocomate", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    display: flex; 
+    align-items: center;
+}
+.header__nav ul li a:hover {
+    color: #004896;
+    text-decoration: underline;
+}
+
+/* *elementos de uso visual*/
+.separador{
+    text-align: center;
+    white-space: nowrap;
+}
+.separador__linea{
+    display: inline-block;  
+    width: 30%;
+    height: 4px;
+    background-color: #3182ce;
+    vertical-align: middle; 
+    margin: 30px 10px;   
+}
+.separador__titulo{
+    display: inline-block;
+    font-family: "cocomate", sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    width: 20%;
+    color: #3182ce;
+    vertical-align: middle;
+    margin:0;
+    letter-spacing: 4px;
+}
+/*! body*/
+/*?   Carrusel */
+.body__carrusel{
+    grid-area: carrusel;
+    overflow:hidden;
+}
+
+.body__somos{
+    grid-area: somos;
+    background-color: rgb(255, 255, 255);
+}
+.body__somos article{
+    font-family: "cocomate", sans-serif;
+    font-size: 14px;
+    padding-left: 90px ;
+    padding-right: 90px ;
+}
+.body__somos blockquote{
+    font-family: "cocomate", sans-serif;
+    font-size: 14px;
+}
+
+/*¿ +++++++++++++++++++++++++++++++++++++++++++++++++++++ seccion aliados */
+.body__aliados{
+    grid-area: aliados;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    overflow: hidden;
+    justify-content: start;
+    align-items: center;
+    padding: 20px 0;
+    height: 1050px;
+}
+.body__aliadosContainer {
+    display: flex;
+    margin-top: 30px;
+    animation: aliadosCarrusel 24s linear infinite;
+    justify-content: start;
+}
+.body__aliadosContainer img {
+  flex: 0 0 15%;
+  max-width: 15%;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.body__aliadosContainer img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.3);
+}
+.body__aliadosContainer:hover {
+  animation-play-state: paused;
+}
+
+.body__productos {
+    margin-top: 20px;
+    width: 85%;
+    transform: translateX(7.5%);
+}
+.body__aliados h3 {
+    margin-top: 50px;
+    text-align: center;
+    font-family: "cocomate", sans-serif;
+    font-size: 20px;
+    color: #3182ce;
+}
+/*¿ Tarjetas de productos*/
+.body__productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .body__productosCard {
+    flex: 0 1 calc((100% - (14px * 4)) / 5); 
+    max-width: calc((100% - (14px * 4)) / 5);
+    box-sizing: border-box; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 170px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: ffffff;
+  }
+  
+  .body__productosCard--img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .body__productosCard--titulo {
+    text-align: center;
+    font-size: 12px;
+    padding: 5px 0;
+    color: #002c5b;
+  }
+  .body__productosCard--descripcion {
+    font-size: 10px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .body__productosCard--precios {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .body__productosCard--precios .original{
+    text-decoration: line-through;
+    font-size: 10px;
+    font-weight: 700;
+    color: #777;
+  }
+  
+  .body__productosCard--precios .oferta {
+    font-size: 14px;
+    color: #4CAF50;
+    font-weight: bold;
+  }
+  
+  .body__productosCard--disponibilidad {
+    font-size: 10px;
+    color: #555;
+  }
+  
+  .body__productosCard--disponibilidad .disponibles {
+    font-weight: bold;
+    color: #004896;
+  }
+  
+  .body__productosCard--boton {
+    margin-top: auto;
+    background-color: #004896;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .body__productosCard--boton:hover {
+    background-color: #061e39;
+  }
+  .body__productosCard:hover {
+    border-color: #007bff; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+    transform: scale(1.05); 
+    background-color: #f0f8ff; 
+    transform: translateY(-5px);
+  }
+/*¿ +++++++++++++++++++++++++++++++++++++++++++++++++++++ termina aliados */
+
+.body__unete {
+    grid-area: unete;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 20px;
+}
+.body__unete--mensaje {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+    max-width: 600px; 
+}
+.body__unete--imagen {
+    width: 30%; 
+    height: auto;
+    margin-bottom: 20px;
+}
+.body__crece {
+    grid-area: crece;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.body__crece--mensaje {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+    max-width: 600px; 
+}
+.body__crece .separador { 
+    margin-top: 20px;;
+    width: 100%;
+}
+.body__crece .separador__titulo{
+    font-size: 26px;
+    width: 120px;
+}
+.body__crece .separador__linea{
+    width: 20%;
+}
+.body__crece--imagen {
+    width: 30%; 
+    height: auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    
+}
+.body__unete .separador { 
+    width: 100%;
+}
+.body__unete .separador__titulo{
+    font-size: 26px;
+    width: 120px;
+}
+.body__unete .separador__linea{
+    width: 20%;
+}
+.body__noticias{
+    grid-area: noticias;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    background-color: rgb(0, 0, 0);
+}
+.body__contactanos{
+    grid-area: contacta;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.body__contactanos .separador { 
+    width: 100%;
+}
+.body__contactanos .separador__titulo{
+    font-size: 26px;
+    width: auto
+}
+.body__contactanos .separador__linea{
+    width: 20%;
+}
+.body__contactanos p{
+    width: 75%;
+}
+.body__contactanos #correo{
+    width: 70%;
+    margin-bottom: 20px;;
+}
+.body__contactanos #mensaje{
+    width: 70%;
+    margin-bottom: 20px;;
+}
+.body__contactanos button{
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.body__visitanos{
+    grid-area: visitanos;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.body__visitanos .separador { 
+    width: 100%;
+}
+.body__visitanos .separador__titulo{
+    font-size: 26px;
+    width: auto
+}
+.body__visitanos .separador__linea{
+    width: 20%;
+}
+.body__visitanos iframe{
+    width: 80%;
+    margin-bottom: 20px;;
+}
+
+/*footer*/
+.footer__legal {
+    grid-area: legal;
+    background-color: gray;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center; 
+}
+.footer__legal p {
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0; 
+    color: inherit;
+}
+.footer__legal ul {
+    margin: 0 auto;
+    text-align: left; 
+    display: inline-block;
+    margin-bottom: 10px;;
+}
+.footer__legal ul li {
+    padding-top: 10px;
+    list-style-type: none;
+}
+.footer__legal ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+.footer__legal ul li a:hover {
+    text-decoration: underline;
+    color: inherit;
+}
+.footer__direcciones {
+    grid-area: direccion;
+    background-color: rgb(94, 94, 94);
+    text-decoration: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer__direcciones--contenedorSucursales {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+}
+.footer__direcciones--contenedorSucursales h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: inherit;
+}
+.footer__direcciones--contenedorSucursales p {
+    margin: 0 0 10px;
+    color: inherit;
+}
+/* ? CSS para los iconos de redes*/
+.footer__redes {
+    grid-area: redes;
+    background-color: rgb(66, 66, 66);
+    padding: 10px;
+}
+.footer__redes ul {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.footer__redes li {
+    flex: 2 2 33%;
+    display: flex;
+    justify-content: center;
+    margin: 5px 0; 
+}
+.footer__redes--iconoNav {
+    width: 50px;
+    height: 50px;
+}
+/* ? CSS para derechos reservados*/
+.footer__derechos {
+    display: flex;
+    grid-area: derechos;
+    background-color: rgb(179, 179, 179);
+    color: rgb(80, 80, 80);
+    text-align: center;
+    line-height: 30px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    justify-content: center; 
+    align-items: center; 
+}
+/* ¿ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Animaciones */
+@keyframes aliadosCarrusel {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+/* !A partir de aqui solo media querie*/
+
+/*?  ------------------------------------------------------------------------------------------------ */
+/*  ?media queries para smartphone*/
+/*?  ------------------------------------------------------------------------------------------------ */
+@media (max-width: 480px){
+    .grid-Container{
+        grid-template-areas: 'logo       logo'      /*10*/
+                             'nav        nav'       /*5*/
+                             'carrusel   carrusel'  /*45*/
+                             'somos      somos'     /*auto 1*/
+                             'aliados    aliados'   /*auto 2*/
+                             'unete      unete'     /*auto 3*/
+                             'crece      crece'     /*auto 4*/
+                             'noticias   noticias'  /*auto 5*/
+                             'contacta   contacta'  /*auto 6*/
+                             'visitanos  visitanos' /*visitanos 7*/                             
+                             'legal      direccion' /*auto 8*/ 
+                             'redes      redes'     /*auto 9*/
+                             'derechos   derechos'; /*auto 10*/
+        grid-template-rows: 10% 7% 38% auto auto auto auto auto auto auto auto auto auto ;
+    }
+    
+    .header__logo--img {
+        width: 100%; 
+        height: 100%; 
+        max-height: auto; 
+    }
+    .header__nav ul li a {
+        font-size: 20px;
+    }
+    .header__nav ul li {
+        margin-right: 30px; 
+    }    
+    .separador__linea{ 
+        width: 20%;
+    }
+    .separador__titulo{
+        font-size: 20px;
+        width: auto;
+    }
+    .body__aliados{
+        height: 1350px;
+    }
+    .body__aliadosContainer {
+        animation: aliadosCarrusel 10s linear infinite;
+        justify-content: start;
+    }
+    .body__aliadosContainer img {
+        flex: 0 0 30%;
+        max-width: 30%;
+      }
+    .body__productosCard {
+        flex: 0 1 calc((100% - (14px * 1)) / 2);
+        max-width: calc((100% - (14px * 1)) / 2); 
+        box-sizing: border-box; 
+    }
+    .body__productosCard:nth-child(n+7) {
+        display: none; 
+      }
+
+    .body__visitanos .separador { 
+        width: 100%;
+    }
+    .body__visitanos .separador__titulo{
+        font-size: 26px;
+        width: auto;
+    }.body__visitanos iframe{
+        font-size: 26px;
+        background-color: #004896;
+        width: 80%
+    }
+
+    .footer__direcciones {
+        padding: 10px; 
+    }
+    
+    .footer__direcciones h4 {
+        padding-left: 0; 
+        font-size: 18px; 
+        text-align: center; 
+    }
+    
+    .footer__direcciones--contenedorSucursales {
+        width: 100%; 
+        margin-left: 0;
+    }
+    .footer__redes li {
+        flex: 2 2 25%;
+        display: flex;
+        justify-content: center;
+        margin: 4px 0; 
+    }
+}
+/*?  ------------------------------------------------------------------------------------------------ */
+/*  ?media queries para tablet y telefonos grandes*/
+/*?  ------------------------------------------------------------------------------------------------ */
+@media (min-width: 480px) and  (max-width: 768px){
+    
+    .grid-Container{
+        grid-template-areas:'logo      nav'
+                            'carrusel  carrusel'
+                            'somos     somos'
+                            'aliados   aliados'
+                            'unete     unete'
+                            'crece     crece'
+                            'contacta  contacta'
+                            'visitanos visitanos' 
+                            'legal     direccion'
+                            'redes     redes'
+                            'derechos  derechos';
+    grid-template-rows: 15% 50% auto auto auto auto auto auto auto auto auto;
+    }
+    .header__logo--img {
+        width: 100%; 
+        max-height: 100%; 
+    }
+    .header__nav ul li {
+        margin-right: 10px; 
+    }
+    .header__nav ul li a {
+        font-size: 20px;
+    }
+    .body__aliados{
+        height: 1050px;
+    }
+    .body__aliadosContainer {
+        animation: aliadosCarrusel 18s linear infinite;
+    }
+    .body__aliadosContainer img {
+        flex: 0 0 24%;
+        max-width: 24%;
+      }
+    .body__productosCard:nth-child(n+7) {
+        display: none; /* Oculta los elementos a partir del sexto */
+      }
+    .body__productosCard {
+        flex: 0 1 calc((100% - (14px * 2)) / 3);
+        max-width: calc((100% - (14px * 2)) / 3); 
+        box-sizing: border-box; 
+    }
+    .footer__direcciones h4 {
+        padding-left: 0;
+        font-size: 20px;
+        text-align: center;
+    }
+    .separador__linea{ 
+        width: 20%;
+    }
+    .separador__titulo{
+        font-size: 20px;
+        width: auto;
+    }
+    .footer__direcciones--contenedorSucursales {
+        width: 90%;
+        margin-left: 0;
+    }
+    .footer__redes li {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        margin: 0 3px; 
+    }
+    .body__visitanos .separador { 
+        width: 100%;
+    }
+    .body__visitanos .separador__titulo{
+        font-size: 26px;
+        width: auto;
+    }
+}
+/*  ?media queries para Computadora*/
+@media (min-width: 769px) and  (max-width: 1100px){
+    .grid-Container{
+        grid-template-areas: 'logo       nav'
+                             'carrusel   carrusel'
+                             'somos      somos'
+                             'aliados    aliados'
+                             'unete      crece'
+                             'contacta   visitanos'
+                             'legal      direccion  '
+                             'redes      redes'
+                             'derechos   derechos';
+        grid-template-rows: 10% 70% auto auto auto auto auto auto auto;
+    }
+    .footer__direcciones h4 {
+        font-size: 22px;
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .footer__direcciones--contenedorSucursales {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer__redes--iconoNav {
+        width: 40px;
+        height: 40px;
+    }
+    .footer__redes li {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        margin: 0 5px; 
+    }
+    .body__contacto .separador{
+        background-color: aquamarine;
+    }
+    .body__contacto .separador .separador__linea{ 
+        width: 30%;
+    }
+    .body__contacto .separador .separador__titulo{
+        font-size: 20px;
+        width: auto;
+        background-color: #131314;
+    }
+    .body__aliados{
+        height: 1000px;
+    }
+    .body__productosCard {
+        flex: 0 1 calc((100% - (14px * 4)) / 5);
+        max-width: calc((100% - (14px * 4)) / 5); 
+        box-sizing: border-box; 
+    }
+    .separador__linea{
+        display: inline-block;  
+        width: 30%;
+        height: 4px;
+        background-color: #3182ce;
+        vertical-align: middle; 
+        margin: 0px 0px;   
+    }
+    .body__unete .separador { 
+        width: 100%;
+    }
+    .body__unete .separador__titulo{
+        font-size: 26px;
+        width: 120px;
+    } 
+    
+    .body__noticias .separador { 
+        width: 100%;
+    }
+    .body__noticias .separador__titulo{
+        font-size: 26px;
+        width: 120px;
+    }
+}
+
+/*  ?media queries para Computadora y monitor grande*/
+/* @media (min-width: 1101px){
+    .grid-Container{
+        grid-template-areas: 'logo       nav'
+                             'carrusel   carrusel'
+                             'somos      somos'
+                             'aliados    aliados'
+                             'servIzq    servDer'
+                             'legal      direccion  '
+                             'redes      redes'
+                             'derechos   derechos';
+        grid-template-rows: 10%  85% auto 15% 60%  20% auto  5%;
+    }
+} */

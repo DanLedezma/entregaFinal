@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+@mixin textoAlineacion {
+    text-align: center;
+}
+@mixin alineacionElementosLinea {
+    display: inline-block;
+    vertical-align: middle;
+}
+@mixin flex($align: center, $justify: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin fuenteLetra($fuente: "principal", $tamanio, $negrita) {
+    @if $fuente == "principal" {
+        font-family: "cocomate", sans-serif;
+    } @if $fuente == "pie" {
+        font-family: "Oswald", sans-serif;
+    }
+    @if $negrita == 1 {
+        font-weight: bold;
+    } @else {
+        font-weight: normal;
+    }
+    font-size: $tamanio;
+}
